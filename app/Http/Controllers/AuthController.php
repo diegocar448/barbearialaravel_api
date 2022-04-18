@@ -38,13 +38,17 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
+
         //$credentials = request(['email', 'password']);
         $credentials = $request->only('username', 'password');
+
 
         //if (! $token = auth()->attempt($credentials)) {
         if (!$token = Auth::guard('api')->attempt($credentials) ) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
+
+
         return $this->respondWithToken($token);
 
 
