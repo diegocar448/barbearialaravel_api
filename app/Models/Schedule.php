@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Schedule
- * 
+ *
  * @property int $id
  * @property Carbon|null $scheduling_date
  * @property string|null $scheduling_hour
@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $user_id
  * @property int|null $employee_id
  * @property int $service_id
- * 
+ *
  * @property Employee|null $employee
  * @property Service $service
  * @property User $user
@@ -32,11 +32,11 @@ class Schedule extends Model
 	protected $table = 'schedules';
 	public $timestamps = false;
 
-	protected $casts = [
-		'user_id' => 'int',
-		'employee_id' => 'int',
-		'service_id' => 'int'
-	];
+	// protected $casts = [
+	// 	'user_id' => 'int',
+	// 	'employee_id' => 'int',
+	// 	'service_id' => 'int'
+	// ];
 
 	protected $dates = [
 		'scheduling_date'

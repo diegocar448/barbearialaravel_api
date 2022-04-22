@@ -61,7 +61,7 @@ class AuthController extends Controller
 
         if(!$user){
             $user = new User();
-            $user->fullname = $request->fullname;
+            $user->fullname = $request->username;
             $user->username = $request->username;
             $user->password = bcrypt($request->password);
             $user->image = "";

@@ -11,13 +11,13 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Service
- * 
+ *
  * @property int $id
  * @property string|null $name
  * @property string|null $description
  * @property float|null $cost
  * @property int $company_id
- * 
+ *
  * @property Company $company
  * @property Collection|Employee[] $employees
  * @property Collection|Schedule[] $schedules
@@ -31,19 +31,19 @@ class Service extends Model
 
 	protected $casts = [
 		'cost' => 'float',
-		'company_id' => 'int'
+		'employee_id' => 'int'
 	];
 
 	protected $fillable = [
 		'name',
 		'description',
 		'cost',
-		'company_id'
+		'employee_id'
 	];
 
-	public function company()
+	public function employee()
 	{
-		return $this->belongsTo(Company::class);
+		return $this->belongsTo(Employee::class);
 	}
 
 	public function employees()

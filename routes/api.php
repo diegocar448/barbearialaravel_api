@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\ScheduleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +36,7 @@ Route::group(['middleware' => 'api'], function ($router) {
 
     Route::resource('companies', CompanyController::class)->except(['create', 'edit']);
     Route::resource('employees', EmployeeController::class)->except(['create', 'edit']);
-    Route::resource('schedules', SchedulesController::class)->except(['create', 'edit']);
+    Route::resource('schedules', ScheduleController::class);//->except(['index', 'create', 'edit']);
     Route::resource('services', ServiceController::class)->except(['create', 'edit']);
 
     Route::get('/', function () {

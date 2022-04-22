@@ -21,7 +21,10 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $employees =  Employee::with("company", "user", "services.scheduled", "schedules")->get();
+
+
+        $employees =  Employee::all();
+        //$employees =  Employee::with("company", "user", "services.scheduled", "schedules")->get();
 
         if($employees){
             return response()->json($employees);

@@ -20,9 +20,10 @@ class ScheduleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $schedules =  Schedule::all();
+        $user = auth('api')->user();
+        $schedules =  Schedule::with('employee', 'service')->where('user_id', $user->id)->orderBy("scheduling_date", "ASC")->get();
 
         if($schedules){
             return response()->json($schedules);
@@ -50,7 +51,7 @@ class ScheduleController extends Controller
     public function store(Request $request)
     {
         $schedule = new Schedule();
-        $schedule->schedule_date = $request->schedule_date;
+        $schedule->scheduling_date = $request->scheduling_date;
 		$schedule->scheduling_hour = $request->scheduling_hour;
 		$schedule->hour_start = $request->hour_start;
 		$schedule->hour_end = $request->hour_end;
