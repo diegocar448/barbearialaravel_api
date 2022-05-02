@@ -20,7 +20,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $companies =  Company::all();
+        $companies =  Company::with("employees.services")->get();
 
         if($companies){
             return response()->json($companies);

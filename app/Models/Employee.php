@@ -56,7 +56,8 @@ class Employee extends Model
 
 	public function services()
 	{
-		return $this->belongsToMany(Service::class, 'employees_services');
+		//return $this->belongsToMany(Service::class, 'employees_services');
+		return $this->hasMany(Service::class);
 	}
 
 	public function schedules()
