@@ -38,7 +38,8 @@ class User extends Authenticatable implements JWTSubject
 	public $timestamps = false;
 
 	protected $casts = [
-		'activated' => 'int'
+		'image' => 'boolean',
+		'activated' => 'bool'
 	];
 
 	protected $hidden = [
