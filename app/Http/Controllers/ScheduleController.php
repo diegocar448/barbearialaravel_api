@@ -52,9 +52,9 @@ class ScheduleController extends Controller
     {
         $schedule = new Schedule();
         $schedule->scheduling_date = $request->scheduling_date;
-		$schedule->scheduling_hour = $request->scheduling_hour;
-		$schedule->hour_start = $request->hour_start;
-		$schedule->hour_end = $request->hour_end;
+		// $schedule->scheduling_hour = $request->scheduling_hour;
+		// $schedule->hour_start = $request->hour_start;
+		// $schedule->hour_end = $request->hour_end;
 		$schedule->user_id = $request->user_id;
 		$schedule->employee_id = $request->employee_id;
 		$schedule->service_id = $request->service_id;
@@ -63,7 +63,7 @@ class ScheduleController extends Controller
         if($schedule){
             return response()->json($schedule);
         }else{
-            return response()->json(['error' => 'Response not save.'], 401);
+            return response()->json(['error' => 'Response not save.']);
         }
     }
 
@@ -80,7 +80,7 @@ class ScheduleController extends Controller
         if($schedule){
             return response()->json($schedule);
         }else{
-            return response()->json(['error' => 'Response not found.'], 401);
+            return response()->json(['error' => 'Response not found.']);
         }
     }
 
@@ -97,7 +97,7 @@ class ScheduleController extends Controller
         if($schedule){
             return response()->json($schedule);
         }else{
-            return response()->json(['error' => 'Response not found.'], 401);
+            return response()->json(['error' => 'Response not found.']);
         }
     }
 
@@ -123,7 +123,7 @@ class ScheduleController extends Controller
         if($schedule){
             return response()->json($schedule);
         }else{
-            return response()->json(['error' => 'Response not updated.'], 401);
+            return response()->json(['error' => 'Response not updated.']);
         }
     }
 
@@ -141,7 +141,7 @@ class ScheduleController extends Controller
             $schedule->delete();
             return response()->json($schedule);
         }else{
-            return response()->json(['error' => 'Response not deleted.'], 401);
+            return response()->json(['error' => 'Response not deleted.']);
         }
     }
 }
