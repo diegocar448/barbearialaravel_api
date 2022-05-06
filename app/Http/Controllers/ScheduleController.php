@@ -50,14 +50,19 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
+        //return $request->all();
+
+        //$employee = !isset($request->employee_id) ? $request->employee_id : "1";
+
+
         $schedule = new Schedule();
         $schedule->scheduling_date = $request->scheduling_date;
 		// $schedule->scheduling_hour = $request->scheduling_hour;
 		// $schedule->hour_start = $request->hour_start;
 		// $schedule->hour_end = $request->hour_end;
-		$schedule->user_id = $request->user_id;
-		$schedule->employee_id = $request->employee_id;
-		$schedule->service_id = $request->service_id;
+		$schedule->user_id = (Integer)$request->user_id;
+		$schedule->employee_id = (Integer)$request->employee_id;
+		$schedule->service_id = (Integer)$request->service_id;
 		$schedule->save();
 
         if($schedule){
