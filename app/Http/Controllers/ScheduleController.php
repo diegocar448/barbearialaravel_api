@@ -61,7 +61,7 @@ class ScheduleController extends Controller
 		// $schedule->hour_start = $request->hour_start;
 		// $schedule->hour_end = $request->hour_end;
 		$schedule->user_id = (Integer)$request->user_id;
-		$schedule->employee_id = (Integer)$request->employee_id;
+		$schedule->employee_id = $request->employee_id;//(Integer)$request->employee_id;
 		$schedule->service_id = (Integer)$request->service_id;
 		$schedule->save();
 
