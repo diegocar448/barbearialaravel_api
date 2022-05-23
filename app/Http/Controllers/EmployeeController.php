@@ -141,4 +141,14 @@ class EmployeeController extends Controller
             return response()->json(['error' => 'Response not deleted.'], 401);
         }
     }
+
+    public function schedules($employee){
+        $employee = Employee::with('services.schedules')->where('id', $employee)->get();
+
+        if($employee->count() > 0){
+            return response()->json($employee);
+        }else{
+            return response()->json(['error' => 'Employee not found.'], 401);
+        }
+    }
 }

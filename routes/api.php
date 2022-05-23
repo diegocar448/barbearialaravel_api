@@ -39,6 +39,8 @@ Route::group(['middleware' => 'api'], function ($router) {
     Route::resource('schedules', ScheduleController::class);//->except(['index', 'create', 'edit']);
     //Route::resource('services', ServiceController::class)->except(['create', 'edit']);
 
+    Route::get('employee/schedules/{employee}', [EmployeeController::class, 'schedules']);
+
     Route::get('/', function () {
         return response()->json(['message' => 'Barber Flutter API', 'status' => 'Connected']);
     });
