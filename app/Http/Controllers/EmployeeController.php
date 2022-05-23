@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use App\Models\Schedule;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
@@ -143,10 +144,10 @@ class EmployeeController extends Controller
     }
 
     public function schedules($employee){
-        $employee = Employee::with('services.schedules')->where('id', $employee)->get();
+        $schedules = Schedule::with('user', 'service', 'employee')->orWhere('employee_id', $employee)->orWhere('employee_id', null)->get();
 
-        if($employee->count() > 0){
-            return response()->json($employee);
+        if($schedules->count() > 0){
+            return response()->json($schedules);
         }else{
             return response()->json(['error' => 'Employee not found.'], 401);
         }
